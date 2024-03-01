@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:fillViewport="true"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            tools:context=".QuizQuestionsActivity">
+
+            <TextView
+                android:id="@+id/tv_question"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:gravity="center"
+                android:text="Pregunta"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/imageView"
+                android:adjustViewBounds="true"
+                android:scaleType="fitXY"
+                android:src="@drawable/canada"/>
+
+            <LinearLayout
+                android:id="@+id/ll_progressbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ProgressBar
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:id="@+id/pb"
+                    android:max="10"
+                    android:progress="0"
+                    android:minHeight="50dp"
+                    android:indeterminate="false"
+                    style="?android:attr/progressBarStyleHorizontal"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="15dp"
+                    android:id="@+id/tv_progress"
+                    android:textColor="@color/black"
+                    android:text="1/10"
+                    android:textSize="15sp"
+                    android:gravity="center"/>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:id="@+id/tv_optionOne"
+                android:text="Opcion 1"
+                android:padding="15dp"
+                android:background="@drawable/default_option_border_bg"
+                android:textSize="17sp"
+                android:textColor="#7A8089"
+                android:textStyle="bold"
+                android:gravity="center"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:id="@+id/tv_optionTwo"
+                android:text="Opcion 2"
+                android:padding="15dp"
+                android:background="@drawable/default_option_border_bg"
+                android:textSize="17sp"
+                android:textColor="#7A8089"
+                android:textStyle="bold"
+                android:gravity="center"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:id="@+id/tv_optionThree"
+                android:text="Opcion 3"
+                android:textSize="17sp"
+                android:padding="15dp"
+                android:background="@drawable/default_option_border_bg"
+                android:textColor="#7A8089"
+                android:textStyle="bold"
+                android:gravity="center"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:id="@+id/tv_optionFour"
+                android:text="Opcion 4"
+                android:textSize="17sp"
+                android:padding="15dp"
+                android:textColor="#7A8089"
+                android:background="@drawable/default_option_border_bg"
+                android:textStyle="bold"
+                android:gravity="center"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:id="@+id/btnSubmit"
+                android:text="ENVIAR"/>
+
+            <!-- Botones para seleccionar la dificultad -->
+            <Button
+                android:id="@+id/easyButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Fácil"
+                android:layout_marginTop="16dp"/>
+
+            <Button
+                android:id="@+id/mediumButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Intermedio"
+                android:layout_marginTop="16dp"/>
+
+            <Button
+                android:id="@+id/hardButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Difícil"
+                android:layout_marginTop="16dp"/>
+
+        </LinearLayout>
+    </ScrollView>
+</layout>
