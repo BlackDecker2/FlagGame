@@ -10,7 +10,16 @@
         android:label="TitleFragment" >
         <action
             android:id="@+id/action_titleFragment_to_gameFragment"
-            app:destination="@id/gameFragment" />
+            app:destination="@id/gameFragment">
+            <argument
+                android:name="difficulty"
+                app:argType="integer" />
+        </action>
+        <action
+            android:id="@+id/action_titleFragment_to_easyFragment2"
+            app:destination="@id/easyFragment" />
+
+
     </fragment>
     <fragment
         android:id="@+id/gameFragment"
@@ -46,5 +55,22 @@
             android:name="name"
             app:argType="string"
             android:defaultValue="name" />
+    </fragment>
+    <fragment
+        android:id="@+id/easyFragment"
+        android:name="com.example.flaggame.screens.game.EasyFragment"
+        android:label="EasyFragment" >
+        <action
+
+            android:id="@+id/action_gameFragment_to_scoreFragment"
+            app:destination="@id/scoreFragment" />
+        <argument
+            android:name="name"
+            app:argType="string"
+            android:defaultValue="name" />
+        <action
+            android:id="@+id/action_gameFragment_to_titleFragment"
+            app:destination="@id/titleFragment"
+            />
     </fragment>
 </navigation>
