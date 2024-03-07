@@ -15,7 +15,6 @@ import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import com.example.flaggame.Constants
 import com.example.flaggame.Question
 import com.example.flaggame.R
 import com.example.flaggame.databinding.FragmentGameBinding
@@ -28,7 +27,7 @@ class GameFragment : Fragment(), View.OnClickListener {
 
     private  var mSelectedPosition: Int = 0
     private var mCorrectAnswer : Int = 0
-     var mCurrrentPosition: Int = 1
+    var mCurrrentPosition: Int = 1
 
 
     override fun onCreateView(
@@ -52,7 +51,7 @@ class GameFragment : Fragment(), View.OnClickListener {
         binding.btnSubmit.setOnClickListener(this)
 
 
-            setQuestion()
+        setQuestion()
 
 
 
@@ -175,15 +174,15 @@ class GameFragment : Fragment(), View.OnClickListener {
 
                         } else -> {
 
-                            // go to result
+                        // go to result
 
-                             val action = GameFragmentDirections.actionGameFragmentToScoreFragment()
-                             val nameOfPlayer by navArgs<GameFragmentArgs>()
-                             action.score = mCorrectAnswer
-                             action.name = nameOfPlayer.name
-                             findNavController().navigate(action)
+                        val action = GameFragmentDirections.actionGameFragmentToScoreFragment()
+                        val nameOfPlayer by navArgs<GameFragmentArgs>()
+                        action.score = mCorrectAnswer
+                        action.name = nameOfPlayer.name
+                        findNavController().navigate(action)
 
-                        }
+                    }
                     }
                 } else {
                     // if user selected an option

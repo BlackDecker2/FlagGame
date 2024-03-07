@@ -14,6 +14,15 @@
             android:gravity="center"
             android:layout_height="wrap_content"
             tools:context=".QuizQuestionsActivity">
+            <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:gravity="center"
+                android:text="game"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/tv_question"
@@ -112,7 +121,8 @@
                 android:textColor="#7A8089"
                 android:background="@drawable/default_option_border_bg"
                 android:textStyle="bold"
-                android:gravity="center"/>
+                android:gravity="center"
+               />
 
             <Button
                 android:layout_width="match_parent"
@@ -122,26 +132,6 @@
                 android:text="ENVIAR"/>
 
             <!-- Botones para seleccionar la dificultad -->
-            <Button
-                android:id="@+id/easyButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Fácil"
-                android:layout_marginTop="16dp"/>
-
-            <Button
-                android:id="@+id/mediumButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Intermedio"
-                android:layout_marginTop="16dp"/>
-
-            <Button
-                android:id="@+id/hardButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Difícil"
-                android:layout_marginTop="16dp"/>
 
         </LinearLayout>
     </ScrollView>

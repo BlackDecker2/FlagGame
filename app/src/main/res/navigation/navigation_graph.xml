@@ -16,7 +16,7 @@
                 app:argType="integer" />
         </action>
         <action
-            android:id="@+id/action_titleFragment_to_easyFragment2"
+            android:id="@+id/action_titleFragment_to_easyFragment"
             app:destination="@id/easyFragment" />
 
 
@@ -61,16 +61,15 @@
         android:name="com.example.flaggame.screens.game.EasyFragment"
         android:label="EasyFragment" >
         <action
-
-            android:id="@+id/action_gameFragment_to_scoreFragment"
+            android:id="@+id/action_easyFragment_to_scoreFragment"
             app:destination="@id/scoreFragment" />
         <argument
             android:name="name"
             app:argType="string"
             android:defaultValue="name" />
         <action
-            android:id="@+id/action_gameFragment_to_titleFragment"
-            app:destination="@id/titleFragment"
-            />
+            android:id="@+id/action_easyFragment_to_titleFragment"
+            app:destination="@id/titleFragment" />
+
     </fragment>
 </navigation>

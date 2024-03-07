@@ -8,12 +8,21 @@
         android:layout_height="match_parent">
 
         <LinearLayout
+            android:background="@color/amaderado"
             android:layout_width="match_parent"
             android:orientation="vertical"
             android:padding="16dp"
             android:gravity="center"
             android:layout_height="wrap_content"
             tools:context=".QuizQuestionsActivity">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:gravity="center"
+                android:text="Nivel Facil"
+                android:textColor="#F4CFAE"
+                android:textSize="35sp" />
 
             <TextView
                 android:id="@+id/tv_question"
@@ -22,8 +31,8 @@
                 android:layout_margin="15dp"
                 android:gravity="center"
                 android:text="Pregunta"
-                android:textColor="@color/black"
-                android:textSize="20sp" />
+                android:textColor="@color/white"
+                android:textSize="30sp" />
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -41,15 +50,16 @@
                 android:orientation="horizontal">
 
                 <ProgressBar
+                    android:id="@+id/pb"
+                    style="?android:attr/progressBarStyleHorizontal"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:id="@+id/pb"
-                    android:max="10"
-                    android:progress="0"
-                    android:minHeight="50dp"
                     android:indeterminate="false"
-                    style="?android:attr/progressBarStyleHorizontal"/>
+                    android:backgroundTint="@color/black"
+                    android:max="10"
+                    android:minHeight="50dp"
+                    android:progress="0" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -101,47 +111,15 @@
                 android:textStyle="bold"
                 android:gravity="center"/>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:id="@+id/tv_optionFour"
-                android:text="Opcion 4"
-                android:textSize="17sp"
-                android:padding="15dp"
-                android:textColor="#7A8089"
-                android:background="@drawable/default_option_border_bg"
-                android:textStyle="bold"
-                android:gravity="center"/>
 
             <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
                 android:id="@+id/btnSubmit"
-                android:text="ENVIAR"/>
-
-            <!-- Botones para seleccionar la dificultad -->
-            <Button
-                android:id="@+id/easyButton"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Fácil"
-                android:layout_marginTop="16dp"/>
+                android:layout_margin="10dp"
+                android:backgroundTint="#574D41"
+                android:text="ENVIAR" />
 
-            <Button
-                android:id="@+id/mediumButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Intermedio"
-                android:layout_marginTop="16dp"/>
-
-            <Button
-                android:id="@+id/hardButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Difícil"
-                android:layout_marginTop="16dp"/>
 
         </LinearLayout>
     </ScrollView>
