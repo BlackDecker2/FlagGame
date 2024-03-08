@@ -1,5 +1,6 @@
 package com.example.flaggame.screens.game
 
+import ConstantsDepartamentos
 import android.graphics.Color
 import android.graphics.Typeface
 import android.os.Bundle
@@ -16,16 +17,18 @@ import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.flaggame.Question
+import com.example.flaggame.QuestionDepartamentos
 import com.example.flaggame.QuestionEasy
 import com.example.flaggame.R
 import com.example.flaggame.databinding.FragmentGameBinding
+import com.example.flaggame.databinding.FragmentGameDepartamentoBinding
 import com.example.flaggame.databinding.FragmentGameEasyBinding
 
 class DepartamentosFragment : Fragment(), View.OnClickListener {
 
-    lateinit var binding: FragmentGameEasyBinding
+    lateinit var binding: FragmentGameDepartamentoBinding
 
-    private lateinit var mQuestionsList : ArrayList<QuestionEasy>
+    private lateinit var mQuestionsList : ArrayList<QuestionDepartamentos>
 
     private  var mSelectedPosition: Int = 0
     private var mCorrectAnswer : Int = 0
@@ -37,11 +40,11 @@ class DepartamentosFragment : Fragment(), View.OnClickListener {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_game_easy, container, false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_game_departamento, container, false)
 
 
         // we have created a new arraylist and stored all our question and answer in it
-        mQuestionsList = ConstantsEasy.getQuestionEasy()
+        mQuestionsList = ConstantsDepartamentos.getQuestionDepartamento()
 
         Log.i("info", mCurrrentPosition.toString())
 
@@ -64,7 +67,7 @@ class DepartamentosFragment : Fragment(), View.OnClickListener {
 
     private fun setQuestion() {
         if (mCurrrentPosition > 0 && mCurrrentPosition <= mQuestionsList.size) {
-            val question: QuestionEasy = mQuestionsList[mCurrrentPosition - 1]
+            val question: QuestionDepartamentos = mQuestionsList[mCurrrentPosition - 1]
 
             binding.tvQuestion.text = question.question
             binding.imageView.setImageResource(question.image)
@@ -85,7 +88,7 @@ class DepartamentosFragment : Fragment(), View.OnClickListener {
                 binding.btnSubmit.text = "Enviar"
             }
         } else {
-            Log.e("EasyFragment", "Invalid current position: $mCurrrentPosition")
+            Log.e("DepartamentoFragment", "Invalid current position: $mCurrrentPosition")
         }
     }
 
@@ -160,8 +163,8 @@ class DepartamentosFragment : Fragment(), View.OnClickListener {
 
                         // go to result
 
-                        val action = EasyFragmentDirections.actionEasyFragmentToScoreFragment()
-                        val nameOfPlayer by navArgs<EasyFragmentArgs>()
+                        val action = DepartamentosFragmentDirections.actionDepartamentosFragmentToScoreFragment()
+                        val nameOfPlayer by navArgs<DepartamentosFragmentArgs>()
                         action.score = mCorrectAnswer
                         action.name = nameOfPlayer.name
                         findNavController().navigate(action)

@@ -64,7 +64,13 @@ class TitleFragment : Fragment() {
             val action = TitleFragmentDirections.actionTitleFragmentToEasyFragment()
             action.name = playerName
             findNavController().navigate(action)
-        } else {
+        }else if (difficulty == Difficulty.HARD) {
+            val action = TitleFragmentDirections.actionTitleFragmentToDepartamentosFragment()
+            action.name = playerName
+            findNavController().navigate(action)
+        }
+        else
+         {
             // Si no es fácil, navegar a GameFragment
             val action = TitleFragmentDirections.actionTitleFragmentToGameFragment(difficulty.ordinal)
             action.name = playerName

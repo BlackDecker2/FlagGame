@@ -18,6 +18,9 @@
         <action
             android:id="@+id/action_titleFragment_to_easyFragment"
             app:destination="@id/easyFragment" />
+        <action
+            android:id="@+id/action_titleFragment_to_departamentosFragment"
+            app:destination="@id/departamentosFragment" />
 
 
     </fragment>
@@ -71,5 +74,20 @@
             android:id="@+id/action_easyFragment_to_titleFragment"
             app:destination="@id/titleFragment" />
 
+    </fragment>
+    <fragment
+        android:id="@+id/departamentosFragment"
+        android:name="com.example.flaggame.screens.game.DepartamentosFragment"
+        android:label="DepartamentosFragment" >
+        <action
+            android:id="@+id/action_departamentosFragment_to_titleFragment"
+            app:destination="@id/titleFragment" />
+        <argument
+            android:name="name"
+            app:argType="string"
+            android:defaultValue="name" />
+        <action
+            android:id="@+id/action_departamentosFragment_to_scoreFragment"
+            app:destination="@id/scoreFragment" />
     </fragment>
 </navigation>
