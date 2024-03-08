@@ -1,0 +1,14 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/easyFragment"
+        android:icon="@drawable/ic_wheel"
+        android:title="Facil" />
+    <item
+        android:id="@+id/gameFragment"
+        android:icon="@drawable/ic_wheel"
+        android:title="Intermedio" />
+    <item
+        android:id="@+id/departamentosFragment"
+        android:icon="@drawable/ic_wheel"
+        android:title="Dificil" />
+</menu>

@@ -40,7 +40,7 @@ object ConstantsEasy {
 
 
 
-        for (i in 1..10) { // Generar 10 preguntas, puedes ajustar este número según sea necesario
+        for (i in 1..10) { // Generar 10 preguntas,
             val respuestaCorrecta = todosLosPaises.random() // Elegir una respuesta correcta aleatoria de entre todos los países
             val opciones = mutableListOf<String>() // Inicializar una lista mutable de opciones
 

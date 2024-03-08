@@ -47,7 +47,7 @@ class TitleFragment : Fragment() {
         }
 
         // Manejar el clic del botón de inicio
-        binding.startBtn.setOnClickListener {
+       /** binding.startBtn.setOnClickListener {
             val playerName = binding.etName.text.toString()
             if (playerName.isNotEmpty() && selectedDifficulty != null) {
                 startGameFragment(selectedDifficulty!!, playerName)
@@ -55,11 +55,11 @@ class TitleFragment : Fragment() {
                 Toast.makeText(context, "Ingresa tu nombre y selecciona una dificultad", Toast.LENGTH_SHORT).show()
             }
         }
-
+*/
         return binding.root
     }
 
-    private fun startGameFragment(difficulty: Difficulty, playerName: String) {
+    /**private fun startGameFragment(difficulty: Difficulty, playerName: String) {
         if (difficulty == Difficulty.EASY) {
             val action = TitleFragmentDirections.actionTitleFragmentToEasyFragment()
             action.name = playerName
@@ -76,6 +76,6 @@ class TitleFragment : Fragment() {
             action.name = playerName
             findNavController().navigate(action)
         }
-    }
+    }*/
 
 }

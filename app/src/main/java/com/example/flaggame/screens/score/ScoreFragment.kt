@@ -1,18 +1,13 @@
 package com.example.flaggame.screens.score
 
 import android.os.Bundle
-import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.activity.OnBackPressedCallback
 import androidx.activity.addCallback
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.fragment.navArgs
 import com.example.flaggame.R
 import com.example.flaggame.databinding.FragmentScoreBinding
 
@@ -27,34 +22,17 @@ class ScoreFragment : Fragment() {
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_score, container, false)
 
-        val scoreArgs by navArgs<ScoreFragmentArgs>()
-        binding.displayResult.text = "${scoreArgs.name}! TU PUNTAJE ES ${scoreArgs.score} PUNTOS DE 10"
+        val scoreArgs = ScoreFragmentArgs.fromBundle(requireArguments())
+        binding.displayResult.text = "Tu puntaje es ${scoreArgs.score} puntos de 10"
 
-        binding.playAgain.setOnClickListener{view: View->
-
-            view.findNavController().navigate(R.id.action_scoreFragment_to_titleFragment)
+        binding.playAgain.setOnClickListener { view ->
+            view.findNavController().navigate(ScoreFragmentDirections.actionScoreFragmentToEasyFragment())
         }
-
-
 
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
-            // handle back event
-
-            view?.findNavController()?.navigate(R.id.action_scoreFragment_to_titleFragment)
-
-
+            view?.findNavController()?.navigate(ScoreFragmentDirections.actionScoreFragmentToEasyFragment())
         }
 
-
         return binding.root
-
-
-
     }
-
-
-
-
-
-
 }

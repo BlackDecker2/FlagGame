@@ -2,28 +2,8 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/navigation_graph"
-    app:startDestination="@id/titleFragment">
+    app:startDestination="@id/easyFragment">
 
-    <fragment
-        android:id="@+id/titleFragment"
-        android:name="com.example.flaggame.screens.title.TitleFragment"
-        android:label="TitleFragment" >
-        <action
-            android:id="@+id/action_titleFragment_to_gameFragment"
-            app:destination="@id/gameFragment">
-            <argument
-                android:name="difficulty"
-                app:argType="integer" />
-        </action>
-        <action
-            android:id="@+id/action_titleFragment_to_easyFragment"
-            app:destination="@id/easyFragment" />
-        <action
-            android:id="@+id/action_titleFragment_to_departamentosFragment"
-            app:destination="@id/departamentosFragment" />
-
-
-    </fragment>
     <fragment
         android:id="@+id/gameFragment"
         android:name="com.example.flaggame.screens.game.GameFragment"
@@ -36,20 +16,15 @@
             android:name="name"
             app:argType="string"
             android:defaultValue="name" />
+
         <action
-            android:id="@+id/action_gameFragment_to_titleFragment"
-            app:destination="@id/titleFragment"
-            />
+            android:id="@+id/action_gameFragment_to_easyFragment"
+            app:destination="@id/easyFragment" />
     </fragment>
     <fragment
         android:id="@+id/scoreFragment"
         android:name="com.example.flaggame.screens.score.ScoreFragment"
         android:label="ScoreFragment" >
-        <action
-            android:id="@+id/action_scoreFragment_to_titleFragment"
-            app:destination="@id/titleFragment"
-            app:popUpTo="@id/titleFragment"
-            app:popUpToInclusive="true" />
         <argument
             android:name="score"
             app:argType="integer"
@@ -58,6 +33,16 @@
             android:name="name"
             app:argType="string"
             android:defaultValue="name" />
+
+        <action
+            android:id="@+id/action_scoreFragment_to_departamentosFragment"
+            app:destination="@id/departamentosFragment" />
+        <action
+            android:id="@+id/action_scoreFragment_to_easyFragment"
+            app:destination="@id/easyFragment" />
+        <action
+            android:id="@+id/action_scoreFragment_to_gameFragment"
+            app:destination="@id/gameFragment" />
     </fragment>
     <fragment
         android:id="@+id/easyFragment"
@@ -70,24 +55,29 @@
             android:name="name"
             app:argType="string"
             android:defaultValue="name" />
+
         <action
-            android:id="@+id/action_easyFragment_to_titleFragment"
-            app:destination="@id/titleFragment" />
+            android:id="@+id/action_easyFragment_to_departamentosFragment"
+            app:destination="@id/departamentosFragment" />
+        <action
+            android:id="@+id/action_easyFragment_to_gameFragment"
+            app:destination="@id/gameFragment" />
 
     </fragment>
     <fragment
         android:id="@+id/departamentosFragment"
         android:name="com.example.flaggame.screens.game.DepartamentosFragment"
         android:label="DepartamentosFragment" >
-        <action
-            android:id="@+id/action_departamentosFragment_to_titleFragment"
-            app:destination="@id/titleFragment" />
         <argument
             android:name="name"
             app:argType="string"
             android:defaultValue="name" />
+
         <action
             android:id="@+id/action_departamentosFragment_to_scoreFragment"
             app:destination="@id/scoreFragment" />
+        <action
+            android:id="@+id/action_departamentosFragment_to_easyFragment"
+            app:destination="@id/easyFragment" />
     </fragment>
 </navigation>

@@ -1,0 +1,16 @@
+<!-- bottom_nav_menu.xml -->
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/action_easy"
+        android:title="Fácil"
+        android:icon="@drawable/ic_wheel" />
+    <item
+        android:id="@+id/action_medium"
+        android:title="Intermedio"
+        android:icon="@drawable/ic_wheel" />
+    <item
+        android:id="@+id/action_hard"
+        android:title="Difícil"
+        android:icon="@drawable/ic_wheel" />
+</menu>
