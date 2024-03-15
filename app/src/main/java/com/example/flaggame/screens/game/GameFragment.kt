@@ -96,7 +96,21 @@ class GameFragment : Fragment(), View.OnClickListener {
         tv.setTextColor(Color.parseColor("#363A43"))
         tv.setTypeface(tv.typeface, Typeface.BOLD)
         tv.background = ContextCompat.getDrawable(requireContext(), R.drawable.selected_option_border_bg)
+
         mSelectedPosition = selectedPosition
+        val question = mQuestionsList[mCurrentPosition - 1]
+
+        val options = arrayListOf<TextView>(binding.tvOptionOne, binding.tvOptionTwo, binding.tvOptionThree)
+        val correctAnswer = question.correctAnswer
+        val selectedOption = mSelectedPosition
+
+        options.forEachIndexed { index, option ->
+            if (index + 1 == correctAnswer) {
+                option.background = ContextCompat.getDrawable(requireContext(), R.drawable.correct_option_border_bg)
+            } else if (index + 1 == selectedOption) {
+                option.background = ContextCompat.getDrawable(requireContext(), R.drawable.wrong_option_border_bg)
+            }
+        }
     }
 
     private fun submitAnswer() {

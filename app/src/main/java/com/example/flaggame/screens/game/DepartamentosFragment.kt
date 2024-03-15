@@ -5,7 +5,6 @@ import android.graphics.Color
 import android.graphics.Typeface
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,6 +12,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.flaggame.QuestionDepartamentos
@@ -76,40 +76,10 @@ class DepartamentosFragment : Fragment(), View.OnClickListener {
 
     override fun onClick(v: View?) {
         when (v?.id) {
-            R.id.tv_optionOne -> {
-                selectOptionAndCheckAnswer(binding.tvOptionOne, 1)
-            }
-            R.id.tv_optionTwo -> {
-                selectOptionAndCheckAnswer(binding.tvOptionTwo, 2)
-            }
-            R.id.tv_optionThree -> {
-                selectOptionAndCheckAnswer(binding.tvOptionThree, 3)
-            }
-            R.id.btnSubmit -> {
-                if (mSelectedPosition == 0) {
-                    Toast.makeText(context, "Por favor, selecciona una opción", Toast.LENGTH_SHORT).show()
-                } else {
-                    val question = mQuestionsList[mCurrentPosition - 1]
-                    if (question.correctAnswer == mSelectedPosition) {
-                        mCorrectAnswer++
-                        answerView(mSelectedPosition, R.drawable.correct_option_border_bg)
-                    } else {
-                        answerView(mSelectedPosition, R.drawable.wrong_option_border_bg)
-                        answerView(question.correctAnswer, R.drawable.correct_option_border_bg)
-                    }
-                    mCurrentPosition++
-                    if (mCurrentPosition <= mQuestionsList.size) {
-                        setQuestion()
-                    } else {
-                        val action = DepartamentosFragmentDirections.actionDepartamentosFragmentToScoreFragment()
-                        val nameOfPlayer by navArgs<DepartamentosFragmentArgs>()
-                        action.score = mCorrectAnswer
-                        action.name = nameOfPlayer.name
-                        findNavController().navigate(action)
-                    }
-                    mSelectedPosition = 0
-                }
-            }
+            R.id.tv_optionOne -> selectOptionAndCheckAnswer(binding.tvOptionOne, 1)
+            R.id.tv_optionTwo -> selectOptionAndCheckAnswer(binding.tvOptionTwo, 2)
+            R.id.tv_optionThree -> selectOptionAndCheckAnswer(binding.tvOptionThree, 3)
+            R.id.btnSubmit -> submitAnswer()
         }
     }
 
@@ -122,13 +92,43 @@ class DepartamentosFragment : Fragment(), View.OnClickListener {
         tv.setTypeface(tv.typeface, Typeface.BOLD)
         tv.background = ContextCompat.getDrawable(requireContext(), R.drawable.selected_option_border_bg)
         mSelectedPosition = selectedPosition
+        val question = mQuestionsList[mCurrentPosition - 1]
+
+        val options = arrayListOf<TextView>(binding.tvOptionOne, binding.tvOptionTwo, binding.tvOptionThree)
+        val correctAnswer = question.correctAnswer
+        val selectedOption = mSelectedPosition
+
+        options.forEachIndexed { index, option ->
+            if (index + 1 == correctAnswer) {
+                option.background = ContextCompat.getDrawable(requireContext(), R.drawable.correct_option_border_bg)
+            } else if (index + 1 == selectedOption) {
+                option.background = ContextCompat.getDrawable(requireContext(), R.drawable.wrong_option_border_bg)
+            }
+        }
     }
 
-    private fun answerView(selectedPosition: Int, drawableView: Int) {
-        when (selectedPosition) {
-            1 -> binding.tvOptionOne.background = ContextCompat.getDrawable(requireContext(), drawableView)
-            2 -> binding.tvOptionTwo.background = ContextCompat.getDrawable(requireContext(), drawableView)
-            3 -> binding.tvOptionThree.background = ContextCompat.getDrawable(requireContext(), drawableView)
+    private fun submitAnswer() {
+        if (mSelectedPosition == 0) {
+            Toast.makeText(context, "Por favor, selecciona una opción", Toast.LENGTH_SHORT).show()
+            return
         }
+        val question = mQuestionsList[mCurrentPosition - 1]
+        val correctAnswer = question.correctAnswer
+        val selectedOption = mSelectedPosition
+
+        if (correctAnswer == selectedOption) {
+            mCorrectAnswer++
+        }
+        mCurrentPosition++
+        if (mCurrentPosition <= mQuestionsList.size) {
+            setQuestion()
+        } else {
+            val action = DepartamentosFragmentDirections.actionDepartamentosFragmentToScoreFragment()
+            val nameOfPlayer by navArgs<DepartamentosFragmentArgs>()
+            action.score = mCorrectAnswer
+            action.name = nameOfPlayer.name
+            findNavController().navigate(action)
+        }
+        mSelectedPosition = 0
     }
 }
